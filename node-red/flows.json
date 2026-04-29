@@ -177,6 +177,17 @@
         "className": ""
     },
     {
+        "id": "3645609b25aea338",
+        "type": "ui_group",
+        "name": "Fan Emergency",
+        "tab": "e752a65c92d6b280",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "324efa5360338802",
         "type": "mqtt in",
         "z": "480eabb870c38958",
@@ -236,9 +247,9 @@
         "dot": false,
         "ymin": "0",
         "ymax": "3",
-        "removeOlder": 1,
+        "removeOlder": "60",
         "removeOlderPoints": "100",
-        "removeOlderUnit": "60",
+        "removeOlderUnit": "1",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -307,7 +318,8 @@
         "y": 560,
         "wires": [
             [
-                "5673b54370dc532b"
+                "5673b54370dc532b",
+                "3ef779116224a555"
             ]
         ]
     },
@@ -316,7 +328,7 @@
         "type": "function",
         "z": "480eabb870c38958",
         "name": "function 2",
-        "func": "\nmsg.payload = msg.payload.status\nreturn msg;",
+        "func": "msg.emergency = msg.payload.emergency;\nmsg.payload = msg.payload.status\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -327,7 +339,8 @@
         "y": 560,
         "wires": [
             [
-                "5418a7e05eee8486"
+                "5418a7e05eee8486",
+                "9252cdc598f8a6a2"
             ]
         ]
     },
@@ -341,7 +354,7 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "ANOMALY",
+                "v": "FAULT",
                 "vt": "str"
             },
             {
@@ -353,8 +366,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 750,
-        "y": 560,
+        "x": 770,
+        "y": 500,
         "wires": [
             [
                 "d6e8ddf6843af086"
@@ -379,8 +392,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1250,
-        "y": 540,
+        "x": 1230,
+        "y": 440,
         "wires": [
             []
         ]
@@ -397,8 +410,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
-        "y": 480,
+        "x": 1030,
+        "y": 400,
         "wires": [
             [
                 "bff6283d0b3f506e"
@@ -418,7 +431,7 @@
         "finalize": "",
         "libs": [],
         "x": 1020,
-        "y": 620,
+        "y": 520,
         "wires": [
             [
                 "bff6283d0b3f506e"
@@ -447,5 +460,115 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "a2dc49ce95f708e6",
+        "type": "ui_template",
+        "z": "480eabb870c38958",
+        "group": "6e9ea93255d69f23",
+        "name": "alert",
+        "order": 0,
+        "width": "6",
+        "height": "6",
+        "format": "<div id=\"statusBox\" style=\"\n    font-size:28px;\n    font-weight:bold;\n    border-radius:12px;\n    text-align:center;\n    border:2px solid {{msg.color}};\n    background:{{msg.bg}};\n    color:{{msg.color}};\n    transition: all 0.3s ease;\n\n    height:180px;\n\n    display:flex;\n    align-items:center;\n    justify-content:center;\n\n     \">\n    {{msg.payload}}\n</div>\n\n<script>\n    (function(scope) {\n\n    let blink = null;\n\n    scope.$watch('msg', function(msg) {\n\n        if (!msg) return;\n\n        const box = document.getElementById(\"statusBox\");\n\n        // stop previous blinking\n        if (blink) {\n            clearInterval(blink);\n            blink = null;\n        }\n\n        // ANOMALY → flashing\n        if (msg.flash === true) {\n\n            let visible = true;\n\n            blink = setInterval(function () {\n                if (!box) return;\n\n                box.style.visibility = visible ? \"hidden\" : \"visible\";\n                visible = !visible;\n            }, 500);\n\n        } else {\n            // NORMAL → always visible\n            if (box) box.style.visibility = \"visible\";\n        }\n    });\n\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1230,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9252cdc598f8a6a2",
+        "type": "switch",
+        "z": "480eabb870c38958",
+        "name": "",
+        "property": "emergency",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 770,
+        "y": 680,
+        "wires": [
+            [
+                "e743fe58fb078073"
+            ],
+            [
+                "dfd68ee253743426"
+            ]
+        ]
+    },
+    {
+        "id": "e743fe58fb078073",
+        "type": "function",
+        "z": "480eabb870c38958",
+        "name": "fan emergency ",
+        "func": "msg.payload = \"Fan is OFF\";\nmsg.color = \"red\";\nmsg.bg = \"rgba(255,0,0,0.15)\";\nmsg.flash = false;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 600,
+        "wires": [
+            [
+                "a2dc49ce95f708e6"
+            ]
+        ]
+    },
+    {
+        "id": "dfd68ee253743426",
+        "type": "function",
+        "z": "480eabb870c38958",
+        "name": "no emergency ",
+        "func": "msg.payload =  \"Fan is ON\";\nmsg.color = \"green\";\nmsg.bg =  \"rgba(0,255,0,0.08)\";\nmsg.flash = false;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 740,
+        "wires": [
+            [
+                "a2dc49ce95f708e6"
+            ]
+        ]
+    },
+    {
+        "id": "3ef779116224a555",
+        "type": "debug",
+        "z": "480eabb870c38958",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 760,
+        "wires": []
     }
 ]
