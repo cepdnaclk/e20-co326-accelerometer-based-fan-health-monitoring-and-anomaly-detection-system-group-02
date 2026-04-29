@@ -6,32 +6,32 @@
   <img src="https://img.shields.io/badge/Deploy-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 </p>
 
-# ⚙️ Accelerometer-Based Fan Health Monitoring & Anomaly Detection System
+# Accelerometer-Based Fan Health Monitoring & Anomaly Detection System
 
 > A real-time embedded system that uses accelerometer vibration data and on-device machine learning to monitor the health of rotating fans, detect mechanical anomalies (imbalance, misalignment, bearing faults), and deliver live diagnostics through an IoT dashboard.
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Introduction](#-introduction)
-- [Problem Statement](#-problem-statement)
-- [Proposed Solution](#-proposed-solution)
-- [System Architecture](#-system-architecture)
-- [Hardware Design](#-hardware-design)
-- [ML Pipeline](#-ml-pipeline)
-- [Software Stack](#-software-stack)
-- [Repository Structure](#-repository-structure)
-- [Getting Started](#-getting-started)
-- [Deployment](#-deployment)
-- [Results](#-results)
-- [Team](#-team)
-- [Acknowledgements](#-acknowledgements)
-- [License](#-license)
+- [Introduction](#introduction)
+- [Problem Statement](#problem-statement)
+- [Proposed Solution](#proposed-solution)
+- [System Architecture](#system-architecture)
+- [Hardware Design](#hardware-design)
+- [ML Pipeline](#ml-pipeline)
+- [Software Stack](#software-stack)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+- [Results](#results)
+- [Team](#team)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
 ---
 
-## 🔍 Introduction
+## Introduction
 
 Industrial rotating machinery — fans, motors, turbines — are critical assets in manufacturing, HVAC, and power generation. Unexpected failures of these machines can cause **costly downtime**, **safety hazards**, and **cascading damage** to connected systems. Traditional maintenance strategies (run-to-failure or calendar-based schedules) are either reactive or wasteful, often replacing parts that still have useful life remaining.
 
@@ -39,7 +39,7 @@ Industrial rotating machinery — fans, motors, turbines — are critical assets
 
 ---
 
-## ❗ Problem Statement
+## Problem Statement
 
 Conventional fan health monitoring relies on **manual periodic inspection**, which suffers from several limitations:
 
@@ -53,7 +53,7 @@ Conventional fan health monitoring relies on **manual periodic inspection**, whi
 
 ---
 
-## 💡 Proposed Solution
+## Proposed Solution
 
 We address these challenges with an **end-to-end IoT + Edge AI system** that:
 
@@ -65,15 +65,15 @@ We address these challenges with an **end-to-end IoT + Edge AI system** that:
 
 ### Key Advantages
 
-- ✅ **Edge inference** — No cloud dependency; classification runs in ~10ms on-device
-- ✅ **Low cost** — Under $15 in hardware (ESP32 + sensor + OLED)
-- ✅ **Real-time** — 100Hz sampling with 2-second inference windows
-- ✅ **Scalable** — MQTT architecture supports monitoring hundreds of fans
-- ✅ **Dockerized backend** — One-command deployment of the full IoT stack
+- **Edge inference** — No cloud dependency; classification runs in ~10ms on-device
+- **Low cost** — Under $15 in hardware (ESP32 + sensor + OLED)
+- **Real-time** — 100Hz sampling with 2-second inference windows
+- **Scalable** — MQTT architecture supports monitoring hundreds of fans
+- **Dockerized backend** — One-command deployment of the full IoT stack
 
 ---
 
-## 🏗 System Architecture
+## System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -111,7 +111,7 @@ We address these challenges with an **end-to-end IoT + Edge AI system** that:
 
 ---
 
-## 🔌 Hardware Design
+## Hardware Design
 
 ### Circuit Schematic
 
@@ -152,7 +152,7 @@ We address these challenges with an **end-to-end IoT + Edge AI system** that:
 
 ---
 
-## 🤖 ML Pipeline
+## ML Pipeline
 
 ### Overview
 
@@ -198,7 +198,7 @@ Raw Sensor Data          DSP Processing           Neural Network          Output
 
 ---
 
-## 💻 Software Stack
+## Software Stack
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
@@ -212,7 +212,7 @@ Raw Sensor Data          DSP Processing           Neural Network          Output
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 .
@@ -268,7 +268,7 @@ Raw Sensor Data          DSP Processing           Neural Network          Output
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -324,7 +324,7 @@ open http://localhost:1880
 
 ---
 
-## 🐳 Deployment
+## Deployment
 
 The IoT backend is fully containerized using Docker Compose:
 
@@ -353,7 +353,7 @@ docker-compose down
 
 ---
 
-## 📊 Results
+## Results
 
 ### Inference Performance (ESP32-S3)
 
@@ -377,7 +377,7 @@ The system classifies vibration patterns into one of 2 categories:
 
 ---
 
-## 🧪 Methodology
+## Methodology
 
 ### 1. Data Collection Phase
 - Mount MPU9250 sensor on fan housing
@@ -402,7 +402,7 @@ The system classifies vibration patterns into one of 2 categories:
 
 ---
 
-## 👥 Team
+## Team
 
 | Name | Registration | Email | Role |
 |------|-------------|-------|------|
@@ -417,7 +417,7 @@ The system classifies vibration patterns into one of 2 categories:
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 - **[Edge Impulse](https://edgeimpulse.com/)** — ML model training and deployment platform
 - **[Eclipse Mosquitto](https://mosquitto.org/)** — Lightweight MQTT broker
@@ -427,12 +427,12 @@ The system classifies vibration patterns into one of 2 categories:
 
 ---
 
-## 📄 License
+## License
 
 This project is developed as part of the **CO326 — Computer Systems Engineering** course at the **University of Peradeniya**, Sri Lanka.
 
 ---
 
 <p align="center">
-  <sub>Built with ❤️ by Group 02 — Department of Computer Engineering, University of Peradeniya</sub>
+  <sub>Built by Group 02 — Department of Computer Engineering, University of Peradeniya</sub>
 </p>
