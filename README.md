@@ -409,7 +409,7 @@ The system classifies vibration patterns into one of 2 categories:
 | D.M.T. Dilshan | E/20/069 | [e20069@eng.pdn.ac.lk](mailto:e20069@eng.pdn.ac.lk) | ML Pipeline & Edge AI |
 | N.R.P. Gunathilake | E/20/122 | [e20122@eng.pdn.ac.lk](mailto:e20122@eng.pdn.ac.lk) | IoT Dashboard & MQTT |
 | N.K.D.P. Jayawardena | E/20/178 | [e20178@eng.pdn.ac.lk](mailto:e20178@eng.pdn.ac.lk) | Hardware & Firmware |
-| K.N.P. Karunarathne | E/20/189 | [e20189@eng.pdn.ac.lk](mailto:e20189@eng.pdn.ac.lk) | Hardware Integration |
+| K.N.P. Karunarathne | E/20/189 | [e20189@eng.pdn.ac.lk](mailto:e20189@eng.pdn.ac.lk) | Hardware Integration, Component Testing, MQTT Data Transmission |
 
 ### Supervisor
 
