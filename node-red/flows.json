@@ -2,9 +2,9 @@
     {
         "id": "480eabb870c38958",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Fan Health Monitor",
         "disabled": false,
-        "info": "",
+        "info": "Accelerometer-based Fan Health Monitoring Dashboard",
         "env": []
     },
     {
@@ -41,8 +41,8 @@
     {
         "id": "e752a65c92d6b280",
         "type": "ui_tab",
-        "name": "Fan Monitoring",
-        "icon": "dashboard",
+        "name": "Fan Health Monitor",
+        "icon": "fa-tachometer-alt",
         "disabled": false,
         "hidden": false
     },
@@ -50,7 +50,7 @@
         "id": "25873b51a3fae798",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-custom",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -65,52 +65,52 @@
                 "edited": false
             },
             "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
+                "name": "Industrial Dark",
+                "default": "#6C63FF",
+                "baseColor": "#6C63FF",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
+                    "default": "#6C63FF",
+                    "value": "#6C63FF",
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
-                    "edited": false
+                    "value": "#1a1a2e",
+                    "edited": true
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
+                    "value": "#0f0f1a",
+                    "edited": true
                 },
                 "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
+                    "value": "#16213e",
+                    "edited": true
                 },
                 "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
+                    "value": "#a8a8d0",
+                    "edited": true
                 },
                 "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
+                    "value": "#2a2a4a",
+                    "edited": true
                 },
                 "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
+                    "value": "#16213e",
+                    "edited": true
                 },
                 "widget-textColor": {
-                    "value": "#111111",
-                    "edited": false
+                    "value": "#e0e0ff",
+                    "edited": true
                 },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
-                    "edited": false
+                    "value": "#6C63FF",
+                    "edited": true
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
+                    "value": "#2a2a4a",
+                    "edited": true
                 },
                 "base-font": {
                     "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
@@ -118,14 +118,14 @@
             },
             "angularTheme": {
                 "primary": "indigo",
-                "accents": "blue",
+                "accents": "purple",
                 "warn": "red",
                 "background": "grey",
-                "palette": "light"
+                "palette": "dark"
             }
         },
         "site": {
-            "name": "Node-RED Dashboard",
+            "name": "Fan Health Monitor",
             "hideToolbar": "false",
             "allowSwipe": "false",
             "lockMenu": "false",
@@ -144,54 +144,118 @@
         }
     },
     {
-        "id": "9ef6723d975cbcd6",
+        "id": "group_header",
         "type": "ui_group",
-        "name": "Vibration Chart",
+        "name": "Header",
         "tab": "e752a65c92d6b280",
         "order": 1,
-        "disp": true,
-        "width": 6,
+        "disp": false,
+        "width": 24,
         "collapse": false,
-        "className": ""
+        "className": "header-group"
+    },
+    {
+        "id": "9ef6723d975cbcd6",
+        "type": "ui_group",
+        "name": "📈 Real-Time Vibration",
+        "tab": "e752a65c92d6b280",
+        "order": 2,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": "chart-group"
     },
     {
         "id": "b5c5186ca4f90f70",
         "type": "ui_group",
-        "name": "Vibration Gauge",
-        "tab": "e752a65c92d6b280",
-        "order": 2,
-        "disp": true,
-        "width": 6,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "6e9ea93255d69f23",
-        "type": "ui_group",
-        "name": "Fan Status",
+        "name": "⚡ Vibration Level",
         "tab": "e752a65c92d6b280",
         "order": 3,
         "disp": true,
         "width": 6,
         "collapse": false,
-        "className": ""
+        "className": "gauge-group"
     },
     {
-        "id": "3645609b25aea338",
+        "id": "6e9ea93255d69f23",
         "type": "ui_group",
-        "name": "Fan Emergency",
+        "name": "🔄 Fan Power",
         "tab": "e752a65c92d6b280",
         "order": 4,
         "disp": true,
         "width": 6,
         "collapse": false,
-        "className": ""
+        "className": "status-group"
+    },
+    {
+        "id": "3645609b25aea338",
+        "type": "ui_group",
+        "name": "🚨 Alert Center",
+        "tab": "e752a65c92d6b280",
+        "order": 5,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": "alert-group"
+    },
+    {
+        "id": "group_css",
+        "type": "ui_group",
+        "name": "CSS",
+        "tab": "e752a65c92d6b280",
+        "order": 6,
+        "disp": false,
+        "width": 1,
+        "collapse": false,
+        "className": "css-group"
+    },
+    {
+        "id": "node_css_inject",
+        "type": "ui_template",
+        "z": "480eabb870c38958",
+        "group": "group_css",
+        "name": "Global CSS",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n/* ── Global Dark Theme Overrides ── */\n.nr-dashboard-theme .nr-dashboard-template {\n  background: transparent !important;\n}\nmd-toolbar {\n  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;\n  box-shadow: 0 4px 20px rgba(108,99,255,0.3) !important;\n}\nmd-toolbar .nr-dashboard-toolbar-title {\n  font-weight: 700 !important;\n  letter-spacing: 1.5px !important;\n  text-transform: uppercase !important;\n  font-size: 18px !important;\n  background: linear-gradient(90deg, #6C63FF, #00d2ff) !important;\n  -webkit-background-clip: text !important;\n  -webkit-text-fill-color: transparent !important;\n}\n.nr-dashboard-cardpanel {\n  background: #0f0f1a !important;\n}\n.nr-dashboard-tab {\n  background: #0f0f1a !important;\n}\nnr-dashboard-sidebar {\n  background: #16213e !important;\n}\n.nr-dashboard-theme ui-card-panel {\n  background: #16213e !important;\n  border: 1px solid rgba(108,99,255,0.15) !important;\n  border-radius: 16px !important;\n  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;\n  margin: 6px !important;\n  transition: transform 0.3s ease, box-shadow 0.3s ease !important;\n}\n.nr-dashboard-theme ui-card-panel:hover {\n  box-shadow: 0 12px 40px rgba(108,99,255,0.2) !important;\n}\n.nr-dashboard-theme .nr-dashboard-theme-border {\n  border-color: #2a2a4a !important;\n}\n.nr-dashboard-groupname {\n  color: #a8a8d0 !important;\n  font-weight: 600 !important;\n  font-size: 13px !important;\n  letter-spacing: 0.8px !important;\n  text-transform: uppercase !important;\n  padding: 8px 12px !important;\n}\n/* Chart styling */\n.chart-group .nr-dashboard-widget canvas {\n  border-radius: 12px;\n}\n/* Hide CSS group */\n.css-group { display: none !important; height: 0 !important; overflow: hidden !important; }\n/* Scrollbar */\n::-webkit-scrollbar { width: 6px; }\n::-webkit-scrollbar-track { background: #0f0f1a; }\n::-webkit-scrollbar-thumb { background: #6C63FF; border-radius: 3px; }\n</style>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 160,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "node_header",
+        "type": "ui_template",
+        "z": "480eabb870c38958",
+        "group": "group_header",
+        "name": "Dashboard Header",
+        "order": 1,
+        "width": 24,
+        "height": 2,
+        "format": "<div style=\"display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:linear-gradient(135deg,#16213e,#1a1a2e);border-radius:16px;border:1px solid rgba(108,99,255,0.2);\">\n  <div style=\"display:flex;align-items:center;gap:16px;\">\n    <div style=\"width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#6C63FF,#00d2ff);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 15px rgba(108,99,255,0.4);\">\n      <span style=\"filter:drop-shadow(0 0 4px rgba(255,255,255,0.5));\">🌀</span>\n    </div>\n    <div>\n      <div style=\"font-size:20px;font-weight:800;background:linear-gradient(90deg,#6C63FF,#00d2ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;\">FAN HEALTH MONITOR</div>\n      <div style=\"font-size:11px;color:#7a7aaa;letter-spacing:2px;text-transform:uppercase;margin-top:2px;\">Accelerometer-Based Anomaly Detection • Group 02</div>\n    </div>\n  </div>\n  <div style=\"display:flex;align-items:center;gap:12px;\">\n    <div style=\"padding:6px 14px;border-radius:20px;background:rgba(0,210,100,0.15);border:1px solid rgba(0,210,100,0.3);\">\n      <span style=\"color:#00d264;font-size:11px;font-weight:600;letter-spacing:1px;\">● SYSTEM ONLINE</span>\n    </div>\n  </div>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 420,
+        "y": 60,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "324efa5360338802",
         "type": "mqtt in",
         "z": "480eabb870c38958",
-        "name": "",
+        "name": "Sensor Data",
         "topic": "sensors/group-02/fan-monitor/data",
         "qos": "2",
         "datatype": "auto-detect",
@@ -200,19 +264,19 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
-        "y": 240,
+        "x": 160,
+        "y": 200,
         "wires": [
             [
-                "413d531eb7581c61"
+                "extract_magnitude"
             ]
         ]
     },
     {
-        "id": "413d531eb7581c61",
+        "id": "extract_magnitude",
         "type": "function",
         "z": "480eabb870c38958",
-        "name": "function 1",
+        "name": "Extract Magnitude",
         "func": "msg.payload = msg.payload.magnitude;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -220,12 +284,37 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 240,
+        "x": 560,
+        "y": 200,
         "wires": [
             [
-                "aa57c3e247c1d5fa",
+                "rate_limit_chart",
                 "440ff2f5e01db387"
+            ]
+        ]
+    },
+    {
+        "id": "rate_limit_chart",
+        "type": "delay",
+        "z": "480eabb870c38958",
+        "name": "Rate Limit (1/sec)",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 140,
+        "wires": [
+            [
+                "aa57c3e247c1d5fa"
             ]
         ]
     },
@@ -233,33 +322,33 @@
         "id": "aa57c3e247c1d5fa",
         "type": "ui_chart",
         "z": "480eabb870c38958",
-        "name": "vibration_chart",
+        "name": "Vibration Chart",
         "group": "9ef6723d975cbcd6",
-        "order": 0,
-        "width": "6",
-        "height": "6",
-        "label": "Vibration Over Time",
+        "order": 1,
+        "width": "12",
+        "height": "7",
+        "label": "Vibration Magnitude Over Time",
         "chartType": "line",
         "legend": "false",
-        "xformat": "time",
-        "interpolate": "linear",
-        "nodata": "Waiting for data...",
-        "dot": false,
+        "xformat": "HH:mm:ss",
+        "interpolate": "bezier",
+        "nodata": "⏳ Awaiting sensor data...",
+        "dot": true,
         "ymin": "0",
         "ymax": "1",
-        "removeOlder": "60",
-        "removeOlderPoints": "100",
+        "removeOlder": "120",
+        "removeOlderPoints": "40",
         "removeOlderUnit": "1",
         "cutout": 0,
-        "useOneColor": false,
+        "useOneColor": true,
         "useUTC": false,
         "colors": [
-            "#1f77b4",
-            "#aec7e8",
+            "#6c63ff",
+            "#00d2ff",
             "#ff7f0e",
-            "#2ca02c",
+            "#00d264",
             "#98df8a",
-            "#d62728",
+            "#ff4757",
             "#ff9896",
             "#9467bd",
             "#c5b0d5"
@@ -267,8 +356,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 820,
-        "y": 160,
+        "x": 1020,
+        "y": 140,
         "wires": [
             []
         ]
@@ -277,35 +366,35 @@
         "id": "440ff2f5e01db387",
         "type": "ui_gauge",
         "z": "480eabb870c38958",
-        "name": "vibration_level",
+        "name": "Vibration Gauge",
         "group": "b5c5186ca4f90f70",
         "order": 1,
         "width": "6",
-        "height": "6",
+        "height": "5",
         "gtype": "gage",
-        "title": "Vibration Level",
-        "label": "units",
+        "title": "Current Level",
+        "label": "g",
         "format": "{{value}}",
         "min": 0,
         "max": "1",
         "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
+            "#00d264",
+            "#ffd93d",
+            "#ff4757"
         ],
         "seg1": "",
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 820,
-        "y": 360,
+        "x": 780,
+        "y": 260,
         "wires": []
     },
     {
         "id": "701ed49971af8dbf",
         "type": "mqtt in",
         "z": "480eabb870c38958",
-        "name": "",
+        "name": "Alert Status",
         "topic": "alerts/group-02/fan-monitor/status",
         "qos": "2",
         "datatype": "auto-detect",
@@ -314,30 +403,29 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
-        "y": 560,
+        "x": 160,
+        "y": 500,
         "wires": [
             [
-                "5673b54370dc532b",
-                "3ef779116224a555",
+                "extract_status",
                 "7969ea47d34447f2"
             ]
         ]
     },
     {
-        "id": "5673b54370dc532b",
+        "id": "extract_status",
         "type": "function",
         "z": "480eabb870c38958",
-        "name": "function 2",
-        "func": "msg.emergency = msg.payload.emergency;\nmsg.payload = msg.payload.status\nreturn msg;",
+        "name": "Extract Status",
+        "func": "msg.payload = msg.payload.status;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 560,
+        "x": 560,
+        "y": 500,
         "wires": [
             [
                 "5418a7e05eee8486"
@@ -348,7 +436,7 @@
         "id": "5418a7e05eee8486",
         "type": "switch",
         "z": "480eabb870c38958",
-        "name": "",
+        "name": "Status Router",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
@@ -366,8 +454,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 770,
-        "y": 560,
+        "x": 760,
+        "y": 500,
         "wires": [
             [
                 "d6e8ddf6843af086"
@@ -378,40 +466,19 @@
         ]
     },
     {
-        "id": "bff6283d0b3f506e",
-        "type": "ui_template",
-        "z": "480eabb870c38958",
-        "group": "3645609b25aea338",
-        "name": "alert",
-        "order": 0,
-        "width": "6",
-        "height": "6",
-        "format": "<div id=\"statusBox\" style=\"\n    font-size:28px;\n    font-weight:bold;\n    border-radius:12px;\n    text-align:center;\n    border:2px solid {{msg.color}};\n    background:{{msg.bg}};\n    color:{{msg.color}};\n    transition: all 0.3s ease;\n\n    height:180px;\n\n    display:flex;\n    align-items:center;\n    justify-content:center;\n\n     \">\n    {{msg.payload}}\n</div>\n\n<script>\n    (function(scope) {\n\n    let blink = null;\n\n    scope.$watch('msg', function(msg) {\n\n        if (!msg) return;\n\n        const box = document.getElementById(\"statusBox\");\n\n        // stop previous blinking\n        if (blink) {\n            clearInterval(blink);\n            blink = null;\n        }\n\n        // ANOMALY → flashing\n        if (msg.flash === true) {\n\n            let visible = true;\n\n            blink = setInterval(function () {\n                if (!box) return;\n\n                box.style.visibility = visible ? \"hidden\" : \"visible\";\n                visible = !visible;\n            }, 500);\n\n        } else {\n            // NORMAL → always visible\n            if (box) box.style.visibility = \"visible\";\n        }\n    });\n\n})(scope);\n</script>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1230,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "d6e8ddf6843af086",
         "type": "function",
         "z": "480eabb870c38958",
-        "name": "anomaly detected",
-        "func": "msg.payload = \"Abnormal Vibrations Detected!\";\nmsg.color = \"red\";\nmsg.flash = true;\nmsg.bg = \"rgba(255,0,0,0.15)\";\nreturn msg;",
+        "name": "Anomaly Detected",
+        "func": "msg.payload = \"ANOMALY DETECTED\";\nmsg.subtitle = \"Abnormal vibrations detected – check fan immediately\";\nmsg.icon = \"⚠️\";\nmsg.color = \"#ff4757\";\nmsg.glow = \"rgba(255,71,87,0.4)\";\nmsg.bg = \"linear-gradient(135deg, rgba(255,71,87,0.12), rgba(255,71,87,0.05))\";\nmsg.border = \"rgba(255,71,87,0.5)\";\nmsg.flash = true;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 990,
-        "y": 500,
+        "x": 980,
+        "y": 440,
         "wires": [
             [
                 "bff6283d0b3f506e"
@@ -422,16 +489,16 @@
         "id": "19754f7767cf6c49",
         "type": "function",
         "z": "480eabb870c38958",
-        "name": "no anomaly detected",
-        "func": "msg.payload = \"Fan Operating Normally\";\nmsg.color = \"green\";\nmsg.flash = false;\nmsg.bg = \"rgba(0,255,0,0.08)\";\nreturn msg;",
+        "name": "No Anomaly",
+        "func": "msg.payload = \"ALL SYSTEMS NORMAL\";\nmsg.subtitle = \"Fan operating within expected parameters\";\nmsg.icon = \"✅\";\nmsg.color = \"#00d264\";\nmsg.glow = \"rgba(0,210,100,0.3)\";\nmsg.bg = \"linear-gradient(135deg, rgba(0,210,100,0.1), rgba(0,210,100,0.03))\";\nmsg.border = \"rgba(0,210,100,0.4)\";\nmsg.flash = false;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1000,
-        "y": 660,
+        "x": 970,
+        "y": 560,
         "wires": [
             [
                 "bff6283d0b3f506e"
@@ -439,35 +506,40 @@
         ]
     },
     {
-        "id": "3ef779116224a555",
-        "type": "debug",
+        "id": "bff6283d0b3f506e",
+        "type": "ui_template",
         "z": "480eabb870c38958",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 160,
-        "y": 800,
-        "wires": []
+        "group": "3645609b25aea338",
+        "name": "Alert Display",
+        "order": 1,
+        "width": "12",
+        "height": "3",
+        "format": "<div id=\"alertBox\" style=\"\n    display:flex;\n    align-items:center;\n    gap:20px;\n    padding:20px 28px;\n    border-radius:16px;\n    border:1px solid {{msg.border}};\n    background:{{msg.bg}};\n    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);\n    box-shadow: 0 0 30px {{msg.glow}};\n\">\n    <div style=\"font-size:40px;filter:drop-shadow(0 0 8px {{msg.glow}});\">{{msg.icon}}</div>\n    <div style=\"flex:1;\">\n        <div style=\"font-size:22px;font-weight:800;color:{{msg.color}};letter-spacing:2px;\">{{msg.payload}}</div>\n        <div style=\"font-size:12px;color:#7a7aaa;margin-top:4px;letter-spacing:0.5px;\">{{msg.subtitle}}</div>\n    </div>\n    <div style=\"padding:6px 16px;border-radius:20px;border:1px solid {{msg.border}};background:rgba(0,0,0,0.2);\">\n        <span style=\"color:{{msg.color}};font-size:11px;font-weight:700;letter-spacing:1px;\">LIVE</span>\n    </div>\n</div>\n\n<script>\n(function(scope) {\n    let blink = null;\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        const box = document.getElementById('alertBox');\n        if (blink) { clearInterval(blink); blink = null; }\n        if (msg.flash === true) {\n            let v = true;\n            blink = setInterval(function() {\n                if (!box) return;\n                box.style.opacity = v ? '0.4' : '1';\n                v = !v;\n            }, 600);\n        } else {\n            if (box) box.style.opacity = '1';\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1200,
+        "y": 500,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "7969ea47d34447f2",
         "type": "function",
         "z": "480eabb870c38958",
-        "name": "timeout function",
-        "func": "if (context.get('timer')) {\n    clearTimeout(context.get('timer'));\n}\n\nconst timer = setTimeout(function() {\n    node.send({ \n        payload: \"OFF\", \n        color: \"#ff4444\" \n    });\n}, 3000);\n\ncontext.set('timer', timer);\n\nmsg.payload = \"ON\";\nmsg.color = \"#00c851\";\nreturn msg;",
+        "name": "Fan ON/OFF Timeout",
+        "func": "if (context.get('timer')) {\n    clearTimeout(context.get('timer'));\n}\n\nconst timer = setTimeout(function() {\n    node.send({\n        payload: \"OFF\",\n        color: \"#ff4757\",\n        glow: \"rgba(255,71,87,0.5)\",\n        ringBg: \"rgba(255,71,87,0.1)\"\n    });\n}, 3000);\n\ncontext.set('timer', timer);\n\nmsg.payload = \"ON\";\nmsg.color = \"#00d264\";\nmsg.glow = \"rgba(0,210,100,0.5)\";\nmsg.ringBg = \"rgba(0,210,100,0.1)\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 760,
+        "x": 580,
+        "y": 660,
         "wires": [
             [
                 "fde2ace3044ebf3d"
@@ -479,20 +551,36 @@
         "type": "ui_template",
         "z": "480eabb870c38958",
         "group": "6e9ea93255d69f23",
-        "name": "Fan On/Off Status",
+        "name": "Fan ON/OFF Display",
         "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<div style=\"\n    width: 120px;\n    height: 120px;\n    border-radius: 50%;\n    background: {{msg.color}};\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 22px;\n    font-weight: bold;\n    color: white;\n    margin: auto;\n    box-shadow: 0 0 20px {{msg.color}};\n    transition: all 0.5s ease;\n\">\n    {{msg.payload}}\n</div>",
+        "width": "6",
+        "height": "5",
+        "format": "<div style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:16px;padding:10px 0;\">\n    <div style=\"position:relative;\">\n        <div style=\"\n            width:110px;height:110px;border-radius:50%;\n            background:radial-gradient(circle, {{msg.ringBg}} 0%, transparent 70%);\n            position:absolute;top:-10px;left:-10px;\n            animation: pulse-ring 2s ease-out infinite;\n        \"></div>\n        <div style=\"\n            width:90px;height:90px;border-radius:50%;\n            background:linear-gradient(135deg, {{msg.color}}, {{msg.color}}cc);\n            display:flex;align-items:center;justify-content:center;\n            font-size:26px;font-weight:800;color:white;\n            box-shadow: 0 0 30px {{msg.glow}}, inset 0 -2px 6px rgba(0,0,0,0.2);\n            transition: all 0.5s cubic-bezier(0.4,0,0.2,1);\n            position:relative;\n            letter-spacing:2px;\n        \">{{msg.payload}}</div>\n    </div>\n    <div style=\"font-size:11px;color:#7a7aaa;font-weight:600;letter-spacing:2px;text-transform:uppercase;\">Fan Power</div>\n</div>\n<style>\n@keyframes pulse-ring {\n    0% { transform:scale(0.9); opacity:1; }\n    100% { transform:scale(1.4); opacity:0; }\n}\n</style>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 990,
-        "y": 760,
+        "x": 820,
+        "y": 660,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "3ef779116224a555",
+        "type": "debug",
+        "z": "480eabb870c38958",
+        "name": "Debug: Alert Topic",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 180,
+        "y": 620,
+        "wires": []
     }
 ]
