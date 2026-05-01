@@ -352,6 +352,7 @@ docker-compose down
 | Node-RED Dashboard | 1880 | `http://localhost:1880` |
 
 ---
+![MQTT connection — MQTT connection established (Fan Assembly)](docs/images/mqtt_connection.png)
 
 ## Results
 
