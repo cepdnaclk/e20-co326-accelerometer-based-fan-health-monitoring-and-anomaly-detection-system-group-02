@@ -12,8 +12,8 @@
 ---
 ## Links
 - **Video**: [Watch here](https://drive.google.com/drive/folders/1OtaXLBtRoM3G369fyFzQG8YVvY9XXsgt?usp=sharing)
-- **Presentation**: [View here](https://drive.google.com/drive/folders/1_qqAL6VRYiXVwNlkxBGlASCpuZVShiYZusp=sharing)
-- **Report**: [Read here](https://drive.google.com/drive/folders/1pGDyBEEJ0AHGqOX0Ar1zr7Tf_T-Ilrm9?usp=sharing)
+- **Presentation**: [View here](https://drive.google.com/file/d/1IXMrvCZbRcrym2Vs-hd36GHyfgO51BNt/view?usp=sharing)
+- **Report**: [Read here](https://drive.google.com/file/d/1zZ1DJQ25RavfkimF5q_RRZuxIZz3n_p0/view?usp=sharing)
 ---
 
 ---
